@@ -1,0 +1,23 @@
+version: '3'
+services:
+    service:
+        build: 
+            dockerfile: Dockerfile
+            context: .
+        ports: 
+            - "9090:9090"
+        networks: 
+            - network1
+    mongodb:
+        image: mongo
+        ports:
+          - "27016:27017"
+        volumes:
+          - "mongodata:/data/db"
+        networks:
+          - network1
+
+volumes:
+    mongodata:
+networks:
+    network1:
