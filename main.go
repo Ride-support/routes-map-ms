@@ -144,8 +144,8 @@ func GetDistancesEndpoint(response http.ResponseWriter, request *http.Request) {
 
 func home(response http.ResponseWriter, request *http.Request) {
 
-	fuck := "works fine"
-	json.NewEncoder(response).Encode(fuck)
+	flag := "works fine"
+	json.NewEncoder(response).Encode(flag)
 
 }
 
@@ -158,9 +158,9 @@ func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/coordinate", CreateCoordinateEndpoint).Methods("POST")
 	router.HandleFunc("/coordinate/{id}", DeleteCoordinateEndpoint).Methods("DELETE")
-	router.HandleFunc("/coordinates", GetCoordinatesEndpoint).Methods("GET")
+	router.HandleFunc("/coordinate", GetCoordinatesEndpoint).Methods("GET")
 	router.HandleFunc("/coordinate/{id}", GetCoordinateEndpoint).Methods("GET")
 	router.HandleFunc("/", home).Methods("GET")
 	router.HandleFunc("/distances/{lat}/{lon}", GetDistancesEndpoint).Methods("GET")
-	http.ListenAndServe(":9090", router)
+	http.ListenAndServe(":4003", router)
 }

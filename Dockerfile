@@ -12,6 +12,6 @@ RUN go get -d -v github.com/gorilla/mux \
 
 RUN go build -o main .
 
-EXPOSE 9090
+EXPOSE 4003
 
 CMD ["/app/main"]
